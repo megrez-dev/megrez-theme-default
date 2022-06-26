@@ -22,7 +22,7 @@ include "component/comment.html" with comments=comments type="article"|"page" pe
             <form method="post" action="/page/{{ page.ID }}/comment" id="comment-form" class="comment-form" role="form" onsubmit ="getElementById('misubmit').disabled=true;return true;">
             {% endif %}
                 <input type="text" name="author" maxlength="12" id="author" class="form-control input-control clearfix" placeholder="昵称 (必填哦)" value="" required>
-                <input type="email" name="mail" id="mail" class="form-control input-control clearfix" placeholder="邮箱 (必填哦)" value=""  required>
+                <input type="email" name="email" id="email" class="form-control input-control clearfix" placeholder="邮箱 (必填哦)" value=""  required>
                 <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="博客地址 (https://)" value="" >
                 <textarea name="text" id="textarea" class="form-control" placeholder="来都来了，看都看了，想说点什么吗 0_o" required ></textarea>
                 <button type="submit" class="submit" id="misubmit">提交</button>
