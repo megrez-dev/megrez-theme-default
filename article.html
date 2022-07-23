@@ -10,9 +10,16 @@
 <body class="" gtools_scp_screen_capture_injected="true">
 
     {% include "component/header.html" %}
-    
+    {% if article.Cover %}
     <div class="post-header-thumb  bg-{{ global.RandomColor }}" style="background-image:url({{ article.Cover }});">
+    {% else %}
+    <div class="post-header-thumb  bg-{{ global.RandomColor }}">
+    {% endif %}
+        {% if article.Cover %}
         <div class="post-header-thumb-op" style="background-image:url({{ article.Cover }});"></div>
+        {% else %}
+        <div class="post-header-thumb-op"></div>
+        {% endif %}
         <div class="post-header-thumb-cover">
             <div class="post-header-thumb-container">
                 <div class="post-header-thumb-title">
