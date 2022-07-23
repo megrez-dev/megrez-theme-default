@@ -15,9 +15,13 @@
                 <div class="post-onelist-item">
                     <div class="post-onelist-item-container">
                         <a href="/">
-                            <div class="onelist-item-thumb bg-deepgrey"
-                                style="background-image:url(https://alkaidchen.oss-cn-guangzhou.aliyuncs.com/site/cover.png);">
-                            </div>
+                            {% if global.ThemeOptions.IPCRecord %}
+                                <div class="onelist-item-thumb bg-deepgrey"
+                                    style="background-image:url({{ global.ThemeOptions.indexMainCover }});">
+                                </div>
+                            {% else %}
+                            <div class="onelist-item-thumb bg-deepgrey"></div>
+                            {% endif %}
                         </a>
                         <div class="onelist-item-info">
                             <div class="item-title">
@@ -35,7 +39,11 @@
                 <div class="post-onelist-item">
                     <div class="post-onelist-item-container">
                         <a href="/article/{{ article.ID }}">
+                            {% if article.Cover %}
                             <div class="onelist-item-thumb bg-{{ global.RandomColor }}" style="background-image:url({{ article.Cover }});"></div>
+                            {% else %}
+                            <div class="onelist-item-thumb bg-{{ global.RandomColor }}""></div>
+                            {% endif %}
                         </a>
                     <div class="onelist-item-info">
                         <div class="item-title">

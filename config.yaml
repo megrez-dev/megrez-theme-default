@@ -24,3 +24,6 @@ tabs:
         name: "footer 打字机后缀"
         type: "tags"
         default: "旅游;健身;阅读"
+      - key: "indexMainCover"
+        name: "主页首图"
+        type: "image"
