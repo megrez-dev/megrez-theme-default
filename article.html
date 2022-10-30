@@ -125,7 +125,7 @@
         </div>
     </article>
 
-    {% include "component/comment.html" with comments=article.Comments type="article" perfix="article/"+article.ID pagination=article.Page %}
+    <script src="https://unpkg.com/vue@2"></script><script src="{{ global.ThemePath }}/static/js/megrez-comment.min.js"></script><megrez-comment id={{article.ID}} type="article"></megrez-comment>
 
     {% include "component/footer.html" %}
     <a href="#0" class="cd-top">Top</a>
