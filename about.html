@@ -28,31 +28,37 @@
                 onclick="window.open('https://github.com/{{ global.ThemeOptions.github }}')">
             {% endif %}
             <div class=" about-contact">
+                {% if global.ThemeOptions.qq %}
                 <a href="http://wpa.qq.com/msgrd?v=3&uin={{ global.ThemeOptions.qq }}&site=qq&menu=yes" target="_blank">
                     <div class="qq">
                         <span class="content">{{ global.ThemeOptions.qq }}</span>
                         <i class="fa fa-qq"></i>
                     </div>
                 </a>
-                <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0xJTUhIS0tPSj8ODlEcEBI" target="_blank">
+                {% endif %}
+                {% if global.ThemeOptions.mail %}
+                <a href="mailto:{{ global.ThemeOptions.mail }}" target="_blank">
                     <div class="email">
                         <span class="content">{{ global.ThemeOptions.mail }}</span>
                         <i class="fa fa-envelope-o"></i>
                     </div>
                 </a>
+                {% endif %}
+                {% if global.ThemeOptions.telegram %}
                 <a href="https://t.me/{{ global.ThemeOptions.telegram }}" target="_blank">
                     <div class="telegram">
                         <span class="content">{{ global.ThemeOptions.telegram }}</span>
                         <i class="fa fa-telegram"></i>
                     </div>
                 </a>
+                {% endif %}
             </div>
             <h1>项目版权</h1>
             <p>如侵犯他人著作权、名誉权、隐私权及肖像权等请联系本站删除。</p>
         </div>
     </article>
 
-    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="{{ global.ThemePath }}/static/js/megrez-comment.min.js"></script>
     <megrez-comment id={{page.ID}} type="page"></megrez-comment>
 
