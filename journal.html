@@ -30,7 +30,7 @@
                         <div style="margin-bottom:30px;">
                             <span class="comment-author comment-by-author"
                                 style="display:block;float:left;margin:0 !important;font-size:12px;"><i
-                                    class="fa fa-paper-plane-o" style="margin-right:4px;"></i>来自微信时光机</span>
+                                    class="fa fa-paper-plane-o" style="margin-right:4px;"></i>来自时光机</span>
                             <time class="comment-time" style="font-size: 12px; float:right;">{{ journal.PublishTime|date:"2006-01-02 15:04:05" }}</time>
                         </div>
                     </div>
@@ -66,9 +66,12 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="{{ global.ThemePath }}/static/js/megrez-comment.min.js"></script>
+    <megrez-comment id={{page.ID}} type="page"></megrez-comment>
     
     {% include "component/footer.html" %}
-
     <a href="#0" class="cd-top">Top</a>
     {% include "component/tail.html" %}
     <script type="text/javascript">

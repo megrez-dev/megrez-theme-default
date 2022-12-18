@@ -13,8 +13,8 @@
         <div class="post-header">
             <h1 class="post-title" itemprop="name headline"> {{ page.Name }} </h1>
             <div class="post-data">
-                <time datetime="2020-04-28T10:01:00+08:00" itemprop="datePublished">
-                    <i class="fa fa-clock-o" aria-hidden="true"> </i> 2020-04-28</time>&nbsp;&nbsp;
+                <time datetime="{{ page.CreateTime|date:"2006-01-02T15:04:05" }}+08:00" itemprop="datePublished">
+                    <i class="fa fa-clock-o" aria-hidden="true"> </i> {{ page.CreateTime|date:"2006-01-02" }}</time>&nbsp;&nbsp;
                     <i class="fa fa-comments-o" aria-hidden="true"></i> <a href="#comments"> {{ page.CommentsNum }} 评论</a>&nbsp;&nbsp;
                     <i class="fa fa-eye" aria-hidden="true"></i> {{ page.Visits }} 浏览
             </div>
@@ -34,11 +34,12 @@
         </div>
     </article>
 
-    {% include "component/comment.html" with comments=comments type="page" perfix=page.Slug pagination=pagination %}
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="{{ global.ThemePath }}/static/js/megrez-comment.min.js"></script>
+    <megrez-comment id={{page.ID}} type="page"></megrez-comment>
 
     {% include "component/footer.html" %}
     <a href="#0" class="cd-top">Top</a>
     {% include "component/tail.html" %}
-    <script type="text/javascript" src="{{ global.ThemePath }}/static/js/commentTyping.js"></script>
 </body>
 </html>

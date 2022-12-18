@@ -3,7 +3,7 @@
 <head>
     {% include "component/head.html" %}
     <meta name="keywords" content="" />
-    <meta name="description" content="软件工程大四学生，渴望并相信着美好的事情将会发生，会一直启用这个博客，算是一个不错的人生笔记。代码改变世界可能很难，但做一些有趣的事情可能正好。" />
+    <meta name="description" content="渴望并相信着美好的事情将会发生，代码改变世界可能很难，但做一些有趣的事情可能正好。" />
     <title>{{ page.Name }} - {{ global.BlogTitle }}</title>
 </head>
 
@@ -15,33 +15,34 @@
         <div class="post-header">
             <h1 class="post-title" itemprop="name headline"> 关于 </h1>
             <div class="post-data">
-                <time datetime="2021-12-24T23:04:00+08:00" itemprop="datePublished">
-                    <i class="fa fa-clock-o" aria-hidden="true"> </i> 2021-12-24
-                </time>&nbsp;&nbsp;
-                <i class="fa fa-comments-o" aria-hidden="true"></i>
-                <a href="#comments"> {{ page.CommentsNum }} 评论</a>&nbsp;&nbsp; <i class="fa fa-eye" aria-hidden="true"></i> {{ page.Visits }} 浏览
+                <time datetime="{{ page.CreateTime|date:"2006-01-02T15:04:05" }}+08:00" itemprop="datePublished">
+                    <i class="fa fa-clock-o" aria-hidden="true"> </i> {{ page.CreateTime|date:"2006-01-02" }}</time>&nbsp;&nbsp;
+                    <i class="fa fa-comments-o" aria-hidden="true"></i> <a href="#comments"> {{ page.CommentsNum }} 评论</a>&nbsp;&nbsp;
+                    <i class="fa fa-eye" aria-hidden="true"></i> {{ page.Visits }} 浏览
             </div>
         </div>
         <div id="post-content" class="post-content">
-            <p>渴望并相信着美好的事情将会发生，会一直启用这个博客，算是一个不错的人生笔记。<br>代码改变世界可能很难，但做一些有趣的事情可能正好。</p>
-            <img id="githubChart" src="https://ghchart.rshah.org/af813d/alkaidchan"
-                onclick="window.open('https://github.com/alkaidchan')">
+            <p>渴望并相信着美好的事情将会发生。<br>代码改变世界可能很难，但做一些有趣的事情可能正好。</p>
+            {% if global.ThemeOptions.github %}
+            <img id="githubChart" src="https://ghchart.rshah.org/af813d/{{ global.ThemeOptions.github }}"
+                onclick="window.open('https://github.com/{{ global.ThemeOptions.github }}')">
+            {% endif %}
             <div class=" about-contact">
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=362774405&site=qq&menu=yes" target="_blank">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin={{ global.ThemeOptions.qq }}&site=qq&menu=yes" target="_blank">
                     <div class="qq">
-                        <span class="content">362774405</span>
+                        <span class="content">{{ global.ThemeOptions.qq }}</span>
                         <i class="fa fa-qq"></i>
                     </div>
                 </a>
                 <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=f0xJTUhIS0tPSj8ODlEcEBI" target="_blank">
                     <div class="email">
-                        <span class="content">362774405@qq.com</span>
+                        <span class="content">{{ global.ThemeOptions.mail }}</span>
                         <i class="fa fa-envelope-o"></i>
                     </div>
                 </a>
-                <a href="https://t.me/alkaidchen" target="_blank">
+                <a href="https://t.me/{{ global.ThemeOptions.telegram }}" target="_blank">
                     <div class="telegram">
-                        <span class="content">AlkaidChen</span>
+                        <span class="content">{{ global.ThemeOptions.telegram }}</span>
                         <i class="fa fa-telegram"></i>
                     </div>
                 </a>
@@ -51,11 +52,12 @@
         </div>
     </article>
 
-    {% include "component/comment.html" with comments=comments type="page" perfix=page.Slug pagination=pagination %}
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="{{ global.ThemePath }}/static/js/megrez-comment.min.js"></script>
+    <megrez-comment id={{page.ID}} type="page"></megrez-comment>
 
     {% include "component/footer.html" %}
     <a href="#0" class="cd-top">Top</a>
     {% include "component/tail.html" %}
-    <script type="text/javascript" src="{{ global.ThemePath }}/static/js/commentTyping.js"></script>
 </body>
 </html>

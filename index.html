@@ -52,7 +52,7 @@
                             <a href="/article/{{ article.ID }}"><span style="padding-right:10px"></span>{{ article.Title }}</a>
                         </div>
                         <div class="item-meta">
-                            <time datetime="2020-11-22T23:00:00+08:00" itemprop="datePublished">
+                            <time itemprop="datePublished">
                             <i class="fa fa-clock-o" aria-hidden="true"> </i> {{ article.PublishTime|date:"2006-01-02" }}</time>&nbsp;&nbsp;
                             {% if article.Categories | length != 0 %}
                             <i class="fa fa-tags" aria-hidden="true"></i>
