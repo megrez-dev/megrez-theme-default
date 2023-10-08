@@ -2,6 +2,7 @@
 <html>
 <head>
     {% include "component/head.html" %}
+    {{ global.ThemeOptions.contentHeadTag | safe }}
     <meta name="keywords" content="" />
     <meta name="description" content="{{ page.Name }}" />
     <title>{{ article.Title }} - {{ global.BlogTitle }}</title>
